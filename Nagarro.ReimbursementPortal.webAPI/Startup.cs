@@ -41,7 +41,7 @@ namespace Nagarro.ReimbursementPortal.webAPI
             services.AddCors();
 
             //db context connection
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<DataContext>(option => option.UseInMemoryDatabase("mydb"));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddAutoMapper(typeof(AutomapperProfiles).Assembly);
